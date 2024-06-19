@@ -14,7 +14,7 @@ const Home = async () => {
           <HeaderBox
             type="greeting"
             title="Welcome"
-            user={loggedInUser.name || "Guest"}
+            user={loggedInUser?.name || "Guest"}
             subtext="Access and manage your account and transactions efficiently."
           />
           <TotalBalanceBox
