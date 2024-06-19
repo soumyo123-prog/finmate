@@ -34,10 +34,10 @@ const AuthForm = ({ type }: { type: string }) => {
     try {
       // Sign up with appwrite and create plaid token.
       if (type === "register") {
-        const newUser = await register(data);
+        const newUser = await register(values);
+        console.log(newUser);
         setUser(newUser);
-      }
-      if (type === "login") {
+      } else {
         const response = await login({
           email: values.email,
           password: values.password,
