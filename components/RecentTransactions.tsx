@@ -1,5 +1,9 @@
 import Link from "next/link";
 import React from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { BankTabItem } from "./BankTabItem";
+import BankInfo from "./BankInfo";
+import TransactionsTable from "./TransactionsTable";
 
 const RecentTransactions = ({
   accounts,
@@ -18,6 +22,29 @@ const RecentTransactions = ({
           View all
         </Link>
       </header>
+      <Tabs defaultValue={appwriteItemId} className="w-full">
+        <TabsList className="recent-transactions-tablist">
+          {accounts.map((account) => (
+            <TabsTrigger key={account.id} value={account.appwriteItemId}>
+              <BankTabItem account={account} appwriteItemId={appwriteItemId} />
+            </TabsTrigger>
+          ))}
+        </TabsList>
+        {accounts.map((account) => (
+          <TabsContent
+            key={account.id}
+            value={account.appwriteItemId}
+            className="space-y-4"
+          >
+            <BankInfo
+              account={account}
+              appwriteItemId={appwriteItemId}
+              type="full"
+            />
+            <TransactionsTable transactions={transactions} />
+          </TabsContent>
+        ))}
+      </Tabs>
     </section>
   );
 };
