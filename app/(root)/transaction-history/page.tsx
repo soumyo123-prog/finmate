@@ -11,7 +11,7 @@ const TransactionHistory = async ({
 }: SearchParamProps) => {
   const currentPage = Number(page as string) || 1;
   const loggedInUser = await getLoggedInUser();
-  const accounts = await getAccounts({ userId: loggedInUser.$id });
+  const accounts = await getAccounts({ userId: loggedInUser?.$id });
   const accountsData = accounts?.data;
 
   if (!accounts) return;

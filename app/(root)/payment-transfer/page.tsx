@@ -6,7 +6,7 @@ import { getAccounts } from "../../../lib/actions/bank.actions";
 
 const PaymentTransfer = async () => {
   const loggedInUser = await getLoggedInUser();
-  const accounts = await getAccounts({ userId: loggedInUser.$id });
+  const accounts = await getAccounts({ userId: loggedInUser?.$id });
 
   if (!accounts) return;
 

@@ -6,7 +6,7 @@ import BankCard from "../../../components/BankCard";
 
 const MyBanks = async () => {
   const loggedInUser = await getLoggedInUser();
-  const accounts = await getAccounts({ userId: loggedInUser.$id });
+  const accounts = await getAccounts({ userId: loggedInUser?.$id });
 
   return (
     <section className="flex">
