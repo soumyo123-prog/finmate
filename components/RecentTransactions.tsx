@@ -53,9 +53,16 @@ const RecentTransactions = ({
               appwriteItemId={appwriteItemId}
               type="full"
             />
-            <TransactionsTable transactions={currentTransactions} />
-
-            {totalPages > 1 && (
+            {transactions.length > 0 ? (
+              <TransactionsTable transactions={currentTransactions} />
+            ) : (
+              <div className="text-16 line-clamp-1 flex-1 font-semibold text-blue-900 flex justify-center">
+                If transactions are not visible, try reloading the page. It can
+                take a few seconds to several minutes to sync the transaction
+                data.
+              </div>
+            )}
+            {transactions.length > 0 && totalPages > 1 && (
               <div className="my-4 w-full">
                 <Pagination totalPages={totalPages} page={page} />
               </div>
