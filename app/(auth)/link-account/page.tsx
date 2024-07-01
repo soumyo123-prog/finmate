@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { getLoggedInUser } from "../../../lib/actions/user.actions";
 import Link from "next/link";
 import Image from "next/image";
@@ -31,7 +31,9 @@ const LinkAccount = async () => {
         </div>
       </header>
       <div className="flex flex-col gap-4">
-        <PlaidLink user={user} variant="primary" />
+        <Suspense>
+          <PlaidLink user={user} variant="primary" />
+        </Suspense>
       </div>
     </section>
   );
