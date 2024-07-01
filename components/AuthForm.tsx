@@ -11,12 +11,12 @@ import { Form } from "@/components/ui/form";
 import CustomFormField from "./CustomFormField";
 import { authFormSchema } from "../lib/utils";
 import { Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { login, register } from "../lib/actions/user.actions";
+import { useProgressBarRouter } from "../hooks/useProgressBarRouter";
 
 const AuthForm = ({ type }: { type: string }) => {
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
+  const router = useProgressBarRouter();
 
   const formSchema = authFormSchema(type);
 

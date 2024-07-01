@@ -3,10 +3,10 @@
 import Image from "next/image";
 import React from "react";
 import { logout } from "../lib/actions/user.actions";
-import { useRouter } from "next/navigation";
+import { useProgressBarRouter } from "../hooks/useProgressBarRouter";
 
 const Footer = ({ user, type = "desktop" }: FooterProps) => {
-  const router = useRouter();
+  const router = useProgressBarRouter();
 
   const handleLogout = async () => {
     const loggedOut = await logout();

@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
-
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { formUrlQuery } from "@/lib/utils";
+import { useProgressBarRouter } from "../hooks/useProgressBarRouter";
 
 export const Pagination = ({ page, totalPages }: PaginationProps) => {
-  const router = useRouter();
+  const router = useProgressBarRouter();
   const searchParams = useSearchParams()!;
 
   const handleNavigation = (type: "prev" | "next") => {

@@ -7,16 +7,16 @@ import {
   PlaidLinkOptions,
   usePlaidLink,
 } from "react-plaid-link";
-import { useRouter } from "next/navigation";
 import {
   createLinkToken,
   exchangePublicToken,
 } from "../lib/actions/user.actions";
 import Image from "next/image";
+import { useProgressBarRouter } from "../hooks/useProgressBarRouter";
 
 const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
   const [token, setToken] = useState("");
-  const router = useRouter();
+  const router = useProgressBarRouter();
 
   useEffect(() => {
     const getLinkToken = async () => {

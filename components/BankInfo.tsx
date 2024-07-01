@@ -1,17 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useSearchParams, useRouter } from "next/navigation";
-
+import { useSearchParams } from "next/navigation";
 import {
   cn,
   formUrlQuery,
   formatAmount,
   getAccountTypeColors,
 } from "@/lib/utils";
+import { useProgressBarRouter } from "../hooks/useProgressBarRouter";
 
 const BankInfo = ({ account, appwriteItemId, type }: BankInfoProps) => {
-  const router = useRouter();
+  const router = useProgressBarRouter();
   const searchParams = useSearchParams();
 
   const isActive = appwriteItemId === account?.appwriteItemId;
